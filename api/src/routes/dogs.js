@@ -45,7 +45,7 @@ router.get('/dogs', async function(req, res){
         // console.log(todosLosPerros.length);
         // console.log(todosLosPerros[0].temperament);
         // console.log(typeof(todosLosPerros[0].temperament))
-        res.send(todosLosPerros)
+        res.json(todosLosPerros)
     }
     catch(error){
         console.log(error);
