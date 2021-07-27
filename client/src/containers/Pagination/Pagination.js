@@ -42,22 +42,15 @@ export  function Pagination(props) {
         const renderDogs = currentDogs.map((Dog) => {
             // const image="https://cdn2.thedogapi.com/images/"+Dog.image.id+".jpg";
             // console.log(Dog)
-            return (
-                
-            //         <DogCard
-            //             nombre = {Dog.name}
-            //             temp = {Dog.temperament}
-            //             id = {Dog.id} 
-            //             key = {Dog.id} 
-                    
-            // />
+            return (                
+            
             <div className="card">
                 <Link to={`/dogs/${Dog.id}`}>
                     <h4 className="card-title">{Dog.name}</h4>
                 </Link>
                 <div>
-                    <img className="image" src={"https://cdn2.thedogapi.com/images/"+Dog.image.id+".jpg"} width="300" height="" alt="No encontro la imagen" />
-                    <h5>Temperament:{Dog.temperament}</h5>
+                    <img className="image" src={"https://cdn2.thedogapi.com/images/"+Dog.image.id+".jpg"} width="" height="300" alt="No encontro la imagen" />
+                    <h5>Temperament: {Dog.temperament}</h5>
                 </div>
         
             </div>
@@ -86,13 +79,22 @@ export  function Pagination(props) {
 
         return (
             <div>
-                
-                <ul id="page-numbers">
-                    {renderPageNumbers}
-                </ul>
-                <ul className= "cards">
-                    <>{renderDogs}</>
-                </ul>
+                <div className = 'showingOptions'>
+                    <button>Show All Dogs</button>
+                    <button>Show Api Dogs</button>
+                    <button>Show My Dogs</button>
+
+                </div>
+            
+                <div>
+                    
+                    <ul id="page-numbers">
+                        {renderPageNumbers}
+                    </ul>
+                    <ul className= "cards">
+                        <>{renderDogs}</>
+                    </ul>
+                </div>
             </div>
         );
             
