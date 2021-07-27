@@ -20,5 +20,9 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
+    creadoPorUsuario: {
+      type: DataTypes.STRING,
+      defaultValue: 'si'
+    }
   });
 };

@@ -5,12 +5,7 @@
 
 
 export function getDogs(breed) {
-    // return async function() {
-    //     const pedido = await fetch("http://localhost:3001/dogs");
-    //     const todosLosPerros = await pedido.json(); 
-    //     // console.log( todosLosPerros[0]);
-    //     return  { type: 'GET_DOGS',
-    //             payload: todosLosPerros  };
+    
     //     }
     if (breed) {
             return function(dispatch){
@@ -33,5 +28,12 @@ export function getDogs(breed) {
                 });
     }}
 };
+
+export function filtByTemper(){
+
+}; 
+export function filtByBreed(){
+
+}; 
 
 

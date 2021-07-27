@@ -11,9 +11,9 @@ function App() {
   return (
     <React.Fragment>
     <NavBar />
+      <Route exact path="/dogs" component={Buscador}/>
       <Route exact path="/" component={LandingPage}/>
       <Route exact path="/dogs" component={Pagination}/>
-      <Route exact path="/dogs" component={Buscador}/>
      
     </React.Fragment>
 

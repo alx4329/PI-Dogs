@@ -1,6 +1,10 @@
 #page-numbers {
+    width: 25%;
+    position:absolute;
+    left: 75%;
     list-style: none;
     display: flex;
+    justify-content: space-between;
   }
 
 #page-numbers > li {
@@ -10,4 +14,15 @@
         user-select: none;
         cursor: pointer;
       
+}
+
+.cards {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  flex-direction: row;
+  
+}
+.image {
+  border: solid 5px black;
 }

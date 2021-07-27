@@ -56,7 +56,7 @@ export  function Pagination(props) {
                     <h4 className="card-title">{Dog.name}</h4>
                 </Link>
                 <div>
-                    <img className="iconoClima" src={"https://cdn2.thedogapi.com/images/"+Dog.image.id+".jpg"} width="300" height="" alt="No encontro la imagen" />
+                    <img className="image" src={"https://cdn2.thedogapi.com/images/"+Dog.image.id+".jpg"} width="300" height="" alt="No encontro la imagen" />
                     <h5>Temperament:{Dog.temperament}</h5>
                 </div>
         
@@ -86,12 +86,12 @@ export  function Pagination(props) {
 
         return (
             <div>
-                <ul>
-                    <>{renderDogs}</>
-                </ul>
                 
                 <ul id="page-numbers">
                     {renderPageNumbers}
+                </ul>
+                <ul className= "cards">
+                    <>{renderDogs}</>
                 </ul>
             </div>
         );
