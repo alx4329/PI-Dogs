@@ -1,23 +1,37 @@
-#page-numbers {
-    width: 25%;
+.page-numbers {
+    width: 50%;
     position:absolute;
-    left: 75%;
+    top:80px;
+    left: 22%;
     list-style: none;
     display: flex;
     justify-content: space-between;
   }
 
-#page-numbers > li {
+.page-numbers > li {
     
         margin-right: 0.3em;
         color: white;
         user-select: none;
         cursor: pointer;
+        
       
 }
 
+.page-numbers > li:active{
+  color: red;
+}
+
+.activePage {
+  color: blue
+}
+
+
+
 .cards {
+ 
   display: flex;
+  
   justify-content: space-around;
   flex-wrap: wrap;
   flex-direction: row;
@@ -25,4 +39,12 @@
 }
 .image {
   border: solid 5px black;
+}
+
+.container{
+  position: absolute;
+  width: 70%;
+  left:10%;
+  
+
 }

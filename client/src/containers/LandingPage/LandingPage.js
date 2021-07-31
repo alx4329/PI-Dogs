@@ -10,10 +10,10 @@ export class LandingPage extends Component {
     
     return (
    
-      <div >
+      <div className = "div">
         <h2>Welcome to the great world of DOGS!</h2>
             <Link to= '/dogs' >
-                  <button>Start</button>
+                  <button >START</button>
             </Link>
         
       </div>

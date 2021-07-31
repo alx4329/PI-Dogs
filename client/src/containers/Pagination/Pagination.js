@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import './Pagination.css';
-import { getDogs } from '../../actions/index';
+import { getDogs, bringDogs, bringDogToDetail } from '../../actions/index';
 // import DogCard from '../../components/DogCard/DogCard';
 import { Link } from 'react-router-dom';
 
@@ -13,17 +13,13 @@ export  function Pagination(props) {
             dispatch(getDogs());
             // eslint-disable-next-line react-hooks/exhaustive-deps
         },[]);
-        const dogsRedux = useSelector(state => state.Dogs)
+        let dogsRedux = useSelector(state => state.Dogs)
         useEffect(()=>{            
             
-            setDogs(dogsRedux)            
+            setDogs(dogsRedux);
+            setCurrentPage(1)
         },[dogsRedux]);
-        // dispatch(getDogs())
-        
         const [dogs, setDogs] = useState([]);
-        console.log(dogs);
-        
-        
         const [currentPage,setCurrentPage]= useState(1);
         const [dogsPerPage]= useState(8);
         
@@ -40,16 +36,13 @@ export  function Pagination(props) {
         const currentDogs = dogs.slice(indexOfFirstDog, indexOfLastDog);
 
         const renderDogs = currentDogs.map((Dog) => {
-            // const image="https://cdn2.thedogapi.com/images/"+Dog.image.id+".jpg";
-            // console.log(Dog)
-            return (                
-            
+            return (            
             <div className="card">
-                <Link to={`/dogs/${Dog.id}`}>
+                <Link to={`/dogs/${Dog.id}`} onClick = {()=> dispatch(bringDogToDetail(Dog.id))}   >
                     <h4 className="card-title">{Dog.name}</h4>
                 </Link>
                 <div>
-                    <img className="image" src={"https://cdn2.thedogapi.com/images/"+Dog.image.id+".jpg"} width="" height="300" alt="No encontro la imagen" />
+                    <img className="image" src={"https://cdn2.thedogapi.com/images/"+Dog.image.id+".jpg"} width="" height="250" alt="No encontro la imagen" />
                     <h5>Temperament: {Dog.temperament}</h5>
                 </div>
         
@@ -58,8 +51,8 @@ export  function Pagination(props) {
             
         });
         // <li key={index}>{Dog}</li>;
-    console.log(renderDogs)
-    // Logic for displaying page numbers
+        // console.log(renderDogs)
+        // Logic for displaying page numbers
         const pageNumbers = [];
         for (let i = 1; i <= Math.ceil(dogs.length / dogsPerPage); i++) {
             pageNumbers.push(i);
@@ -68,6 +61,7 @@ export  function Pagination(props) {
         const renderPageNumbers = pageNumbers.map(number => {
             return (
                 <li
+                    className = {currentPage ===number ? "activePage": ""}
                     key={number}
                     id={number}
                     onClick={handleClick}
@@ -80,20 +74,25 @@ export  function Pagination(props) {
         return (
             <div>
                 <div className = 'showingOptions'>
-                    <button>Show All Dogs</button>
-                    <button>Show Api Dogs</button>
-                    <button>Show My Dogs</button>
+                    <button onClick= {()=> dispatch(getDogs())}>Show All Dogs</button>
+                    <button onClick= {()=> dispatch(bringDogs('api'))}>Show Api Dogs</button>
+                    <button onClick= {()=> dispatch(bringDogs('created'))}>Show My Dogs</button>
 
                 </div>
             
                 <div>
                     
-                    <ul id="page-numbers">
+                    <ul className="page-numbers">
                         {renderPageNumbers}
                     </ul>
-                    <ul className= "cards">
-                        <>{renderDogs}</>
-                    </ul>
+                    <div className="container">
+                        <ul className= "cards">
+                            <>{renderDogs}</>
+                        </ul>
+                    </div>
+                    {/* <ul className="page-numbers">
+                        {renderPageNumbers}
+                    </ul> */}
                 </div>
             </div>
         );

@@ -23,6 +23,10 @@ module.exports = (sequelize) => {
     creadoPorUsuario: {
       type: DataTypes.STRING,
       defaultValue: 'si'
+    },
+    imagenURL: {
+      type: DataTypes.STRING,
+      allowNull: false
     }
   });
 };

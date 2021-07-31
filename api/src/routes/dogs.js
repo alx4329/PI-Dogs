@@ -25,27 +25,46 @@ router.get('/dogs', async function(req, res){
         let pedido ;
         let name = req.query.name;
         if(name) {
-            pedido =  await fetch(`https://api.thedogapi.com/v1/breeds/search?q=${name}`);            
-        } else { pedido =  await fetch('https://api.thedogapi.com/v1/breeds');
-                name = null; 
+            pedido =  await fetch(`https://api.thedogapi.com/v1/breeds/search?q=${name}`);    
+            if(!pedido) {
+                var dbDogs = await Raza.findAll({
+                    where: {
+                        nombre: name
+                    },
+                include: Temperamento
+                })
+            }
+        } else {    
+                pedido =  await fetch('https://api.thedogapi.com/v1/breeds');
+                var dbDogs = await Raza.findAll();
+                
                 }
         
-        const dbDogs = await Raza.findAll({
-            where: {
-                nombre: name
-            },
-        include: Temperamento
-        })
-        //console.log(dbDogs)
+        
+        console.log(dbDogs)
+        let todosLosPerros = [];
+        let select =req.query.select;
+        if(select){
+            if(select === 'api'){
+                todosLosPerros = await pedido.json();
+                res.json(todosLosPerros)
 
-        let todosLosPerros = await pedido.json();
-        todosLosPerros.concat(dbDogs);
+            }else { if( select === 'created'){
+                res.json(dbDogs)               
+            } else res.status(404).send('Not an Option')
+         }
+        } else {            
+            todosLosPerros = await pedido.json();
+            todosLosPerros.concat(dbDogs);
+            res.json(todosLosPerros)
+        } 
+        
         console.log('Perros cargados!');
 
         // console.log(todosLosPerros.length);
         // console.log(todosLosPerros[0].temperament);
         // console.log(typeof(todosLosPerros[0].temperament))
-        res.json(todosLosPerros)
+       
     }
     catch(error){
         console.log(error);
@@ -67,7 +86,8 @@ router.get('/dogs/:idRaza', async function(req, res){
             altura: dog.height.metric,
             peso: dog.weight.metric,
             img: dog.image,
-            vida: dog.life_span
+            vida: dog.life_span,
+            imageId: dog.image.id
         }} else {
             dogToDetail = await Raza.findAll({
             where: {
@@ -84,10 +104,11 @@ router.get('/dogs/:idRaza', async function(req, res){
 })
 
 router.post('/dog',async function(req,res){
-    let {nombre, alturaMinima, alturaMaxima, pesoMinimo, pesoMaximo, life_span, temps, newTemps} = req.body;
-    let altura = alturaMinima + '-' + alturaMaxima;
+    console.log(req.body);
+    let {name, hmin, hmax, wmin, wmax, life_span, temps, newTemps,image} = req.body;
+    let altura = hmin + ' - ' + hmax;
     //console.log(altura);
-    let peso = pesoMinimo+ '-' + pesoMaximo;
+    let peso = wmin+ ' - ' + wmax;
     let tempsId = [];
     if(temps) tempsId = temps;
     if(newTemps){
@@ -100,10 +121,11 @@ router.post('/dog',async function(req,res){
         console.log(tempsId)
     
         const newPerro = await Raza.create({
-            nombre:nombre,
+            nombre:name,
             altura: altura,
             peso: peso,
             life_span: life_span,
+            imagenURL: image
             
         })
     

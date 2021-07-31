@@ -17,8 +17,7 @@ export function Buscador (props) {
   function handleSubmit(event) {
     event.preventDefault();
     dispatch(getDogs(dogToFind));
-    // LLAMAR ACCION QUE MODIFIQUE LOS PERROS
-    // this.props.getMovies(this.state.title)
+    
   }
 
   
@@ -28,17 +27,19 @@ export function Buscador (props) {
       <div>
         {/* <h2>Buscador</h2> */}
         <form className="form-container" onSubmit={(e) =>  handleSubmit(e)}>
-          <div>
-            <label className="label" htmlFor="title">Find Me by Breed </label>
+          <div >
+            {/* <label className="label" htmlFor="title">Find Me by Breed </label> */}
             <input
               type="text"
-              id="dogToFind"
+              id="namanyay-search-box"
+              className="input"
               autoComplete="off"
+              placeholder= "Who are you looking for?"
               value={dogToFind}
               onChange={(e) => handleChange(e)}
             />
+          <button id="namanyay-search-btn" type="submit">Search</button>
           </div>
-          <button type="submit">Search</button>
         </form>
         {/* <ul>
           {

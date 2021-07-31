@@ -1,0 +1,22 @@
+.orderBy {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 140px;
+    right: 0%;
+    
+}
+
+.button {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: none;
+    background: transparent;
+    color: white
+}
+
+.button:hover {
+border: solid 2px yellow;
+font-style: italic;
+font-weight: 500;
+}

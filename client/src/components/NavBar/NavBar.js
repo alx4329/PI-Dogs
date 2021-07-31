@@ -13,7 +13,7 @@ export default function NavBar() {
             <nav>
                 <ul className="list">
                     <li className="list-item">
-                        <NavLink exact to="/create" >Load Your Dog</NavLink>
+                        <NavLink exact to="/create" >Create</NavLink>
                         <NavLink exact to="/" >Home</NavLink>
                     
                     </li>

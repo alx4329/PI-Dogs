@@ -18,12 +18,15 @@ export function LeftSideBar(){
     const temps = useSelector(state => state.Temps); 
     const renderTemps = temps.map((temp,index)=>{
         return (
+            <ul>
             <button
                 key = {index}
                 onClick = {()=>handleClick(temp.nombre)}
+                className="button"
             >
             {temp.nombre}
             </button>
+            </ul>
         )
     })
     return (

@@ -12,3 +12,14 @@ body {
 /* background-color: brown; */
 }
 
+.div {
+    position: absolute;
+    left:35%;
+    top: 75%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+
