@@ -13,7 +13,9 @@ import {Create} from './components/Create/Create';
 function App() {
   return (
     <React.Fragment>
-    <NavBar />
+    
+
+      <Route path={["/dogs","/create"]} component={NavBar}/>
       <Route exact path="/dogs" component={Buscador}/>
       <Route exact path="/" component={LandingPage}/>
       <Route exact path="/dogs" component={RightSideBar}/>

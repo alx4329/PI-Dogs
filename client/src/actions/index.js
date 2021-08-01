@@ -12,22 +12,17 @@ export const ORD_WD = 'ORD_WD';
 export const TO_DETAIL = 'TO_DETAIL';
 export const CREATE_DOG = 'CREATE_DOG';
 
-export function getDogs(breed) {
-    
-    //     }
+export function getDogs(breed) {    
     if (breed) {
             return function(dispatch){
                 return fetch(`http://localhost:3001/dogs?name=${breed}`)
                     .then(response => response.json())
-                    .then(json => {
-                        
+                    .then(json => {                        
                         dispatch({ type: SEARCH_BREED,
                         payload: json  });
                         });
             }
-
         } else {
-
             return function(dispatch){
                 return fetch("http://localhost:3001/dogs")
                     .then(response => response.json())
@@ -57,17 +52,9 @@ export function filtByTemper(value){
         }
 }; 
 export function bringDogs(option){
-    return function(dispatch){
-        return fetch(`http://localhost:3001/dogs?select=${option}`)
-            .then(response => response.json())
-            .then(json => {
-                dispatch({ type: GET_DOGS,
-                payload: json  });
-                });
-     
-            
-
-        } 
+    return function(dispatch){        
+                dispatch({ type: BRING_DOGS,
+                payload: option });} 
 }; 
 
 export function getTemps(){
@@ -82,22 +69,18 @@ export function getTemps(){
 }
 
 export function orderBy(by){    
-    return function(dispatch){
-        
+    return function(dispatch){        
                 return fetch("http://localhost:3001/dogs")
                     .then(response => response.json())
                     .then(json => {
-                        if(by === 'AZA'){dispatch({ type: ORD_AZA, payload: json})}
-                    if(by === 'AZD'){
-                        dispatch({ type: 'ORD_AZD',payload: json});
-                    }
-                    if(by === 'WA'){
-                        dispatch({ type: ORD_WA,payload: json});
-                    }
-                    if(by === 'WD'){
-                    dispatch({ type: ORD_WD,payload: json});
-                    }
-                                
+                        if(by === 'AZA'){
+                            dispatch({ type: ORD_AZA, payload: json})}
+                        if(by === 'AZD'){
+                            dispatch({ type: ORD_AZD, payload: json});}
+                        if(by === 'WA'){
+                            dispatch({ type: ORD_WA, payload: json});}
+                        if(by === 'WD'){
+                            dispatch({ type: ORD_WD, payload: json});}                                
                     })
                             }
                         }

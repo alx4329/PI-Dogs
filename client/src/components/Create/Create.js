@@ -13,6 +13,10 @@ export function Create(props) {
     },[]);
     
     const [tempToAdd, setTempToAdd] = useState('');
+    const reduxDogs = useSelector(state => state.AllDogs);
+    
+    const reduxDogsId = reduxDogs.map((item)=>item.id)
+    const maxId = Math.max(...reduxDogsId);
     
     const [state, setState] = useState({
       name: '',
@@ -23,13 +27,13 @@ export function Create(props) {
       image:'',
       life_span: '',
       temps: [],
-      newTemps:[]
+      newTemps:[],
+      maxId: maxId
     })
     
     const reduxTemps = useSelector(state => state.Temps);
     
     
-    console.log(reduxTemps)
     const [checkedState, setCheckedState] = useState([]);
 
     useEffect(()=>{
@@ -40,11 +44,11 @@ export function Create(props) {
     console.log(checkedState);
     // let updatedCheckedState;
 
-    const handleOnCheck = (temperamento, position) => {
+    const handleOnCheck = (temperamentoId, position) => {
       if(checkedState[position]=== true) {
         checkedState[position] = !checkedState[position]
 
-        let nuevoArr = state.temps.filter((item)=> item !== temperamento )
+        let nuevoArr = state.temps.filter((item)=> item !== temperamentoId )
         setState({
           ...state,
           temps: nuevoArr
@@ -53,7 +57,7 @@ export function Create(props) {
         checkedState[position] = !checkedState[position];
         setState({
           ...state,
-          temps: [...state.temps, temperamento]
+          temps: [...state.temps, temperamentoId]
         })
       }
       console.log(state)
@@ -130,7 +134,7 @@ export function Create(props) {
                   id={index}
                   name={item.nombre}
                   value={item.nombre}
-                  onChange = {()=>handleOnCheck(item.nombre, index)}
+                  onChange = {()=>handleOnCheck(item.id, index)}
                 ></input>
                 {item.nombre}
               </li>

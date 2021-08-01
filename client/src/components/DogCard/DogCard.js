@@ -23,9 +23,9 @@ export  function DogCard (props){
             
             <div>
                 <h5>Temperament:{dog.temperamento}</h5>
-                <h5>Height:{dog.altura} kg</h5>
-                <h5>Weight:{dog.peso} meters</h5>
-                <h5>Life Span:{dog.vida}</h5>
+                <h5>Height: {dog.altura} cm</h5>
+                <h5>Weight: {dog.peso} kg</h5>
+                <h5>Life Span: {dog.vida}</h5>
             </div>
             
         </div>

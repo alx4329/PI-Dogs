@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
- import { GET_DOGS, FILTER_by_TEMP, GET_TEMPS, SEARCH_BREED , ORD_AZA, ORD_AZD, ORD_WA, ORD_WD, TO_DETAIL, CREATE_DOG  } from "../actions/index";
+ import { GET_DOGS, FILTER_by_TEMP, GET_TEMPS, SEARCH_BREED , ORD_AZA, ORD_AZD, ORD_WA, ORD_WD, TO_DETAIL, CREATE_DOG, BRING_DOGS  } from "../actions/index";
 // import fetch from node-fetch; 
 
 const initialState = {
@@ -21,17 +21,36 @@ export function rootReducer(state = initialState, action) {
     }
     
     
-    if (action.type === SEARCH_BREED) {        
+    if (action.type === BRING_DOGS) {
+        console.log(action.payload)
+        if(action.payload === 'created') {            
+            
+            let perros = state.AllDogs.filter((item)=> (item.creadoPorUsuario))
+            return {
+                ...state,
+                Dogs: perros
+                    };
+                } else { 
+                    let perros = state.AllDogs.filter((item)=> (!item.creadoPorUsuario))
+                    return {
+                        ...state,
+                        Dogs: perros
+                            };
+        }
+    }
+    if (action.type === SEARCH_BREED) {
+        // console.log(action.payload)          
         let perros = action.payload.map((item)=> {
             item.image = {};
             item.image.id = item.reference_image_id
             return item
-        })
+            })
         return {
             ...state,
             Dogs: perros
-        };
+                };
     }
+
     if (action.type === GET_TEMPS){
         return {
             ...state,
