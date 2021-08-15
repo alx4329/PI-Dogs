@@ -1,6 +1,6 @@
 import React, { useEffect} from 'react'; 
 import { useDispatch, useSelector } from 'react-redux';
-// import { Link } from 'react-router-dom';
+
 import { filtByTemper, getTemps } from '../../actions';
 import './LeftSideBar.css';
 
@@ -22,7 +22,7 @@ export function LeftSideBar(){
             <button
                 key = {index}
                 onClick = {()=>handleClick(temp.nombre)}
-                className="button"
+                className="buttonlb"
             >
             {temp.nombre}
             </button>
@@ -30,7 +30,7 @@ export function LeftSideBar(){
         )
     })
     return (
-        <div className= 'temps'>
+        <div className= 'contLB'>
             {renderTemps}
         </div>
     )

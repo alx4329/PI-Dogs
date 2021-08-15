@@ -11,7 +11,7 @@ import { useSelector } from 'react-redux';
 //             vida: dog.life_span
 //             imageId: dog.image.id
 
-export  function DogCard (props){
+export  function DogDetail (props){
     let dog = useSelector( state => state.DogToDetail);
     console.log(dog);
     const imagen  =  "https://cdn2.thedogapi.com/images/"+dog.imageId+".jpg"
@@ -32,4 +32,4 @@ export  function DogCard (props){
     )
 }
 
-export default (DogCard)
+export default (DogDetail)

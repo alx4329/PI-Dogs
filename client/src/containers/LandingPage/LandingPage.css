@@ -1,25 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Bowlby+One+SC&family=Roboto&display=swap');
 
 
-body {
-   
+
+
+.backLP {
     height: 100vh;
-    
-    background-image: url('../../img/FondoLP1350_900.jpg');
+    width: 100%;
+    background-image: url('../../img/arroz_para_perros.jpg');
+    background-size:contain;
     background-attachment: fixed;
+    background-color: white;
     background-repeat: no-repeat;
     margin: 0;
     background-position: top;
-/* background-color: brown; */
 }
 
-.div {
+
+
+
+
+#welcome{
     position: absolute;
-    left:35%;
-    top: 75%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+    font-family: 'Bowlby One SC', cursive, 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;    
+    font-size: 50px;
+    left: 5%;
+    top: 5%;
+    width: 400px;
+    
+}
+#start {
+    background-image: url('../../img/pataPerroNegra.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+    bottom:20%;
+    right:5%;
+    border: none;
+    padding: 20px;
+    height: 181px;
+    width: 197px;
+    border-radius: 0px;
+    transition: all 0.2s;
+    cursor: pointer;
+    
 }
 
+#start:hover{
+    height: 200px;
+    width: 218px;
+    
+}
 
+#start:active{
+    height: 181px;
+    width: 197px;
+    
+}
+
+#letra{
+    color: white;
+    font-family: 'Bowlby One SC';
+    font-size: 20px;
+    position: relative;
+    top: 45px;
+    left: 8px;
+}

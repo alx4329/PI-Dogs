@@ -12,13 +12,15 @@ function handleClick(value){
 
 
     return(
+        
         <div className ='orderBy'>
-            <h3>Order By</h3>
-            <button className="button" onClick = {()=>handleClick('AZA')}>AZ-Ascending</button>
+            <h3 id="titleRB">Order By</h3>
+            <button className="button from-right" onClick = {()=>handleClick('AZA')}>AZ-Ascending</button>
             <button className="button" onClick = {()=>handleClick('AZD')}>AZ-Descending</button>
             <button className="button" onClick = {()=>handleClick('WA')}>Weight-Ascending</button>
             <button className="button" onClick = {()=>handleClick('WD')}>Weight-Descending</button>
         </div>
+        
     )
 }
 

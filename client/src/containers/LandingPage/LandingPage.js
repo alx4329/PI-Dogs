@@ -9,15 +9,17 @@ export class LandingPage extends Component {
   render() {
     
     return (
-   
-      <div className = "div">
-        <h2>Welcome to the great world of DOGS!</h2>
+      <div className ='backLP'>
+      
+        <div id="welcome" >Welcome to Henry - Dogs</div>
             <Link to= '/dogs' >
-                  <button >START</button>
+                  <button id ="start">
+                    <span id ='letra'>START</span>
+                  </button>
             </Link>
         
+     
       </div>
-      
     );
   }
 }

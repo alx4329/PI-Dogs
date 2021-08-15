@@ -8,12 +8,14 @@ export default function NavBar() {
     return (
         <header className="navbar">
             <div>
-                <img id="logoDogs" src={Logo} width="30" height="30" className="d-inline-block align-top" alt="" />
+                <img id="logoDogs" src={Logo} width="40" height="40" alt="" />
             </div>
             <nav>
                 <ul className="list">
                     <li className="list-item">
                         <NavLink exact to="/create" >Create</NavLink>
+                        </li>
+                        <li className="list-item">
                         <NavLink exact to="/" >Home</NavLink>
                     
                     </li>

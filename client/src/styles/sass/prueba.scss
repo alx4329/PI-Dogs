@@ -1,0 +1,9 @@
+$color-fondos: #F55;
+$color-letras: rgb(38, 58, 124);
+h1 {
+  background-color: $color-fondos;
+}
+
+h2{
+    font: $color-letras
+}

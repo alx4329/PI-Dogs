@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import { getDogs } from "../../actions";
 import { useDispatch } from "react-redux";
-// import { connect } from "react-redux";
-// import { Link } from 'react-router-dom';
+import { bringDogs } from "../../actions";
 import './Buscador.css';
-// import { addMovieFavorite } from "../../actions/index";
-// import { getMovies } from "../../actions/index";
+
 
 export function Buscador (props) {
   const [dogToFind, setDogToFind] = useState(['']);
@@ -19,16 +17,16 @@ export function Buscador (props) {
     dispatch(getDogs(dogToFind));
     
   }
-
-  
-    
-    
     return (
-      <div>
-        {/* <h2>Buscador</h2> */}
+      <div className= 'bar2'>
+        <div className = 'showingOptions'>
+                    <button onClick= {()=> dispatch(getDogs())}>Show All Dogs</button>
+                    <button onClick= {()=> dispatch(bringDogs('api'))}>Show Api Dogs</button>
+                    <button onClick= {()=> dispatch(bringDogs('created'))}>Show My Dogs</button>
+
+                </div>
         <form className="form-container" onSubmit={(e) =>  handleSubmit(e)}>
           <div >
-            {/* <label className="label" htmlFor="title">Find Me by Breed </label> */}
             <input
               type="text"
               id="namanyay-search-box"
@@ -41,24 +39,7 @@ export function Buscador (props) {
           <button id="namanyay-search-btn" type="submit">Search</button>
           </div>
         </form>
-        {/* <ul>
-          {
-            this.props.movies.map((movie) => {
-              var objetoMovie = {
-                Title: movie.Title,
-                imdbID: movie.imdbID
-              }
-              return (
-                <li>
-                <Link to= {`/movie/${movie.imdbID}`} >
-                  <span>{movie.Title}</span>
-                  </Link>
-                  <button onClick ={() =>this.props.addMovieFavorite(objetoMovie) } >Agregar a favoritos</button>
-                </li>
-              )
-            })
-          }
-        </ul> */}
+        
       </div>
     );
   
