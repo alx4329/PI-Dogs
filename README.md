@@ -36,11 +36,11 @@ Henry Dogs en la cual se puedan ver distintas razas de perro junto con informaci
 
 Compuesto por:
 
-    __Pagina inicial__: deben armar una landing page con
+    __Pagina inicial__: 
     - [✔️] Alguna imagen de fondo representativa al proyecto
     - [✔️] Botón para ingresar al home (`Ruta principal`)
 
-    __Ruta principal__: debe contener
+    __Ruta principal__: 
     - [✔️] Input de búsqueda para encontrar razas de perros por nombre
     - [✔️] Área donde se verá el listado de razas de perros. Deberá mostrar su:
       - Imagen
@@ -50,13 +50,13 @@ Compuesto por:
     - [✔️] Botones/Opciones para ordenar tanto ascendentemente como descendentemente las razas de perro por orden alfabético y por peso
     - [✔️] Paginado para ir buscando y mostrando las siguientes razas
 
-    __Ruta de detalle de raza de perro__: debe contener
+    __Ruta de detalle de raza de perro__: 
     - [✔️] Los campos mostrados en la ruta principal para cada raza (imagen, nombre y temperamento)
     - [✔️] Altura
     - [✔️] Peso
     - [✔️] Años de vida
 
-    __Ruta de creación de raza de perro__: debe contener
+    __Ruta de creación de raza de perro__: 
     - [✔️] Un formulario __controlado__ con los siguientes campos
       - Nombre
       - Altura (Diferenciar entre altura mínima y máxima)
@@ -67,28 +67,27 @@ Compuesto por:
 
 #### Base de datos
 
-Compuesto por las siguientes entidades:
-- [✔️] Raza con las siguientes propiedades:
-  - ID *
-  - Nombre *
-  - Altura *
-  - Peso *
-  - Años de vida
-- [✔️] Temperamento con las siguientes propiedades:
-  - ID
-  - Nombre
+    Compuesto por las siguientes entidades:
+    - [✔️] Raza con las siguientes propiedades:
+      - ID *
+      - Nombre *
+      - Altura *
+      - Peso *
+      - Años de vida
+    - [✔️] Temperamento con las siguientes propiedades:
+      - ID
+      - Nombre
 
 
 #### Backend
 
 Servidor en Node/Express con las siguientes rutas:
 
-
-- [✔️] __GET /dogs__:  
-- [✔️] __GET /dogs?name="..."__:  
-- [✔️] __GET /dogs/{idRaza}__:  
-- [✔️] __GET /temperament__:  
-- [✔️] __POST /dog__:
+    - [✔️] __GET /dogs__:  
+    - [✔️] __GET /dogs?name="..."__:  
+    - [✔️] __GET /dogs/{idRaza}__:  
+    - [✔️] __GET /temperament__:  
+    - [✔️] __POST /dog__:
   
 
 #### Testing
